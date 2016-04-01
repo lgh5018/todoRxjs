@@ -1,0 +1,25 @@
+{
+  "name": "todo-rxjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "http-server -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qqzh002/todoRxjs.git"
+  },
+  "author": "qu.zhe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qqzh002/todoRxjs/issues"
+  },
+  "homepage": "https://github.com/qqzh002/todoRxjs#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "todomvc-app-css": "^2.0.4",
+    "todomvc-common": "^1.0.2"
+  }
+}
