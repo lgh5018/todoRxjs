@@ -24,17 +24,21 @@
         </footer>
         <script src="lib/babel/5.8.34/browser.js"></script>
         <script src="lib/handlebars/4.0.5/handlebars.js"></script>
+        <script src="lib/lodash/4.6.1/lodash.js"></script>
         <script src="lib/jquery/3.0.0-beta1/jquery.js"></script>
         <script src="lib/rxjs/4.0.8/rx.all.js"></script>
         <script id="todo-item-template" type="text/x-handlebars-template">
             <li class="{{className}}">
+                <input id="todo-toggle-input-{{id}}" class="toggle" type="checkbox" {{#if completed}}checked{{/if}}>
                 <div class="view">
                     <label>{{title}}</label>
                 </div>
             </li>
         </script>
+        <script type="text/babel" src="src/js/todoModel.js"></script>
         <script type="text/babel" src="src/js/todoSubject.js"></script>
         <script type="text/babel" src="src/js/newTodoSource.js"></script>
+        <script type="text/babel" src="src/js/todoSource.js"></script>
         <script type="text/babel" src="src/js/app.js"></script>
     </body>
 </html>

@@ -3,24 +3,15 @@
 
     var todoSubject = window.todoSubject;
 
-    var ENTER_KEY = 13;
+    const isEnterKey = e => e.which === 13;
+    const valueIsNotEmpty = e => e.target.value.trim().length > 0;
 
     var $newTodoInput = $("#new-todo-input");
     var newTodoSource = Rx.Observable.fromEvent($newTodoInput, "keydown")
-        .filter(e => e.keyCode === ENTER_KEY)
-        .map(e => e.target.value.trim())
-        .filter(title => title.length > 0)
-        .map(title => ({
-            title: title,
-            completed: false
-        }));
+        .filter(isEnterKey)
+        .filter(valueIsNotEmpty)
+        .map(e => new TodoModel(e.target.value.trim()));
 
-    newTodoSource.subscribe(newTodo => {
-        var todoList = todoSubject.getValue();
-        todoList.push(newTodo);
-        todoSubject.onNext(todoList);
-    });
+    newTodoSource.subscribe(todo => todoSubject.add(todo));
     newTodoSource.subscribe(todo => $newTodoInput.val(""));
-
-    window.newTodoSource = newTodoSource;
 })();
